@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- PicoCss CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="container">
+      <nav>
+        <ul>
+          <a href="/">
+            <li>HOME</li>
+          </a>
+        </ul>
+        <ul>
+          <li>berlinstartupjobs.com</li>
+          <li>web3.career</li>
+          <a href="/export?keyword={{keyword}}"><li>다운로드</li></a>
+        </ul>
+      </nav>
+    </header>
+    <main class="container">
+      <h1>직종을 입력하세요</h1>
+      <h4>검색어 {{keyword}} 으로 검색 완료</h4>
+      <table class="striped">
+        <thead>
+          <tr>
+            <th>제목</th>
+            <th>회사</th>
+            <th>상세보기</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for job in jobs %}
+          <tr>
+            <td><span>{{job.title}}</span></td>
+            <td><span>{{job.company}}</span></td>
+            <td>
+              <button class="outline">
+                <a href="{{job.link}}" target="_blank">자세히보기</a>
+              </button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </main>
+    <footer class="container">copyright @ ynu</footer>
+  </body>
+</html>
